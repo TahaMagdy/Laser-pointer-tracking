@@ -1,0 +1,93 @@
+JFileChooser choser = new JFileChooser();
+
+        // Get array of available formats
+        String[] suffices = ImageIO.getReaderFileSuffixes();
+
+        // Add a file filter for each one
+        FileNameExtensionFilter filter ;
+
+        choser. setAcceptAllFileFilterUsed(false);
+        for (String suffice : suffices) {
+            filter = new FileNameExtensionFilter(suffice + " files", suffice);
+            choser.addChoosableFileFilter(filter);
+        }
+        File s=choser.getSelectedFile();
+    
+      choser.setDialogTitle("Image Choser");
+      choser.setCurrentDirectory(new File("."));
+      choser.setMultiSelectionEnabled(false);
+      if(choser.showOpenDialog(this)==JFileChooser.APPROVE_OPTION)
+      {
+          path = choser.getSelectedFile().getParent();
+          name = choser.getSelectedFile().getName();
+          System.err.println(path);
+          System.err.println(name);
+          Thread kt;
+           kt = new Thread()
+           {
+               @Override
+               public void run()
+               {
+                   try {
+                       repaint();
+                       Image img = ImageIO.read(choser.getSelectedFile());
+                       Graphics g = jPanel1.getGraphics();
+                       g.drawImage(img, 0, 0, jPanel1.getWidth(), jPanel1.getHeight(),null);
+                       g.drawImage(img, 0, 0, jPanel1.getWidth(), jPanel1.getHeight(),null);
+                       jButton2.setEnabled(true);
+                   } catch (IOException ex) {
+                       System.out.println("erro yad");
+                   }
+               }
+           };
+          kt.start();
+      }
+
+
+
+
+
+
+
+//////////////////////
+   if(Test_2.havegreen) 
+                      { 
+                            if(Test_2.isleft())
+                        {
+                            jLabel1.setText("left");
+                          //  Test_2.setKk(0);
+                            System.exit(0);   
+                            
+                        }
+                         else if(Test_2.isRight())
+                        {                          
+                                jLabel1.setText("snaping shoot "+it);
+                                Imgcodecs.imwrite("shoot number "+it+".jpg", mat);
+                                it++;
+                                Test_2.setRight(false);
+  
+                        }
+                         else if(Test_2.isUp())
+                        {
+                            jLabel1.setText("Up");
+                          // Test_2.setKk(0);
+                            chose = 2;
+                        }
+                         else if(Test_2.isBooton())
+                        {
+                            jLabel1.setText("down");
+                          //  Test_2.setKk(0);
+                            chose = 1;
+                        }
+                      }  
+                    } catch (Exception ex) {
+                        System.out.println("Error zoraar Vedio");
+                    } 
+///////////////////////////////////
+if(co.getRed()==255)
+                    {
+                        color.add(new org.opencv.core.Point(j, i));
+                        havegreen=true;
+                    }
+/////////////////////////////////
+

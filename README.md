@@ -9,5 +9,7 @@ The Stream is working on 25 frames only, to make the test easier,
 to make the stream runs normally, Kindly remove the line number `441` in 
 `MainFrame.java` file `// break;`
 
+
 # To Run
-Try to make a circle, if it was a circle, `Circle ^_^` will appear in the console. Otherwise `Circle ^_^` won't appear. 
+Try to make a circle, if it was a circle, `Circle ^_^` will appear in the console. Otherwise `Circle ^_^` won't appear.
+It's easier to open it using NetBeans.
